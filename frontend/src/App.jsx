@@ -108,7 +108,7 @@ const ReportGenApp = () => {
       files.forEach(file => formData.append('files', file));
       formData.append('urls', urls);
 
-      const response = await fetch('http://127.0.0.1:5000/process', {
+      const response = await fetch('http://34.31.224.215:5000/process', {
         method: 'POST',
         body: formData,
       });
@@ -137,7 +137,7 @@ const ReportGenApp = () => {
     setPlotPath(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/query', {
+      const response = await fetch('http://34.31.224.215:5000/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: query.trim() }),
@@ -161,7 +161,7 @@ const ReportGenApp = () => {
     if (!report) return;
 
     try {
-      const response = await fetch(`http://127.0.0.1:5000/report/${format}`, {
+      const response = await fetch(`http://34.31.224.215:5000/report/${format}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ report, plotPath }),
@@ -322,7 +322,7 @@ const ReportGenApp = () => {
                 {plotPath && (
                   <div className="rounded-xl overflow-hidden border border-[#2D2B3C] bg-[#1A1825] p-4">
                     <img 
-                      src={`http://127.0.0.1:5000${plotPath}`} 
+                      src={`http://34.31.224.215:5000${plotPath}`} 
                       alt="Analysis Graph" 
                       className="w-full h-auto rounded-lg"
                     />
